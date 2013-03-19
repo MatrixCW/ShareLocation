@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="4">
+            <objects>
+                <viewController id="2" customClass="SLViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5">
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E2Y-ve-sVU">
+                                <items>
+                                    <barButtonItem title="Update Me!" id="GfX-Iq-c9p"/>
+                                </items>
+                            </toolbar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YNx-Jy-Uhj"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="E2Y-ve-sVU" firstAttribute="leading" secondItem="5" secondAttribute="leading" type="default" id="06p-aD-JCK"/>
+                            <constraint firstItem="YNx-Jy-Uhj" firstAttribute="trailing" secondItem="5" secondAttribute="trailing" type="default" id="KyF-jD-ema"/>
+                            <constraint firstItem="E2Y-ve-sVU" firstAttribute="top" secondItem="5" secondAttribute="top" type="default" id="Lzn-bc-fXg"/>
+                            <constraint firstItem="E2Y-ve-sVU" firstAttribute="trailing" secondItem="5" secondAttribute="trailing" type="default" id="W1s-nr-VHi"/>
+                            <constraint firstItem="YNx-Jy-Uhj" firstAttribute="leading" secondItem="5" secondAttribute="leading" type="default" id="eWp-H3-uW6"/>
+                            <constraint firstItem="YNx-Jy-Uhj" firstAttribute="top" secondItem="E2Y-ve-sVU" secondAttribute="bottom" type="default" id="lOT-Ii-hjp"/>
+                            <constraint firstItem="YNx-Jy-Uhj" firstAttribute="bottom" secondItem="5" secondAttribute="bottom" type="default" id="qfe-lB-iGE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="myMapView" destination="YNx-Jy-Uhj" id="MNT-C7-HzZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-77" y="-220"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>
