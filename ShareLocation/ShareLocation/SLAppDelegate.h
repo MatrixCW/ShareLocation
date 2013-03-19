@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SLViewController.h"
 
 @interface SLAppDelegate : UIResponder <UIApplicationDelegate>
 

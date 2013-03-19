@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import <CoreLocation/CoreLocation.h>
+#import "SLConnector.h"
 
 #define METERS_PER_MILE 1609.344
 
-@interface SLViewController : UIViewController <CLLocationManagerDelegate>
+@interface SLViewController : UIViewController 
 
 @property (weak, nonatomic) IBOutlet MKMapView *myMapView;
-@property CLLocationManager *myLocationManeger;
+
+- (IBAction)locateButtonPressed:(id)sender;
+- (IBAction)updateButtonPressed:(id)sender;
+
 @end
