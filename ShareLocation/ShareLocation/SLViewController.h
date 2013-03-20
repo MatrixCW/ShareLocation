@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "SLConnector.h"
+#import "SLAnnotationPin.h"
 
 #define METERS_PER_MILE 1609.344
 
-@interface SLViewController : UIViewController 
+@interface SLViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet MKMapView *myMapView;
 

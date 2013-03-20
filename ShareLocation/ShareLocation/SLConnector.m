@@ -20,7 +20,7 @@
     
     //build up the request that is to be sent to the server
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:
-                                                                             @"http://ec2-54-251-66-243.ap-southeast-1.compute.amazonaws.com/getWardData.php"]];
+                                                                             @"http://ec2-50-112-192-193.us-west-2.compute.amazonaws.com/getAllData.php"]];
     
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
@@ -49,7 +49,20 @@
 
     NSString *string = [[NSString alloc] initWithData:data
                                              encoding:NSASCIIStringEncoding];
-    NSLog(@"%@", string);
+    
+    
+    NSArray *components = [string componentsSeparatedByString:@"\""];
+    NSMutableArray *parsedArray = [NSMutableArray array];
+    
+    for(id object in components){
+        NSMutableString *temp = [[NSMutableString alloc] initWithString:(NSString*)object];
+        NSString* parsedTemp = [temp stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+        if([self stringIsNumeric:parsedTemp])
+           [parsedArray addObject:parsedTemp];
+    }
+    
+    for(id object in parsedArray)
+        NSLog(@"%@",object);
     self.receivedData = data;
     
 }
@@ -64,12 +77,21 @@
     
 
 }
--
-(void)connectionDidFinishLoading:(NSURLConnection *)connection{
+
+
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection{
     
     NSLog(@"Request Complete,recieved %d bytes of data", self.receivedData.length);
     
     [self.myDelegate requestReturnedData:self.receivedData];
+}
+
+
+-(BOOL)stringIsNumeric:(NSString*) myString{
+    
+    NSNumberFormatter *nf = [[NSNumberFormatter alloc] init];
+    return [nf numberFromString:myString] != Nil;
+    
 }
 
 @end

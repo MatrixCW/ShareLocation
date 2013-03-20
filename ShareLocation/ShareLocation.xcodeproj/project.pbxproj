@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C228F7816F9DA3500034F26 /* SLAnnotationPin.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C228F7716F9D9A300034F26 /* SLAnnotationPin.m */; };
 		7C41C77A16F89A0A003A7861 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C41C77916F89A0A003A7861 /* MapKit.framework */; };
 		7C525EDB16F8E1AF0018ADEE /* SLConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C525EDA16F8E1AF0018ADEE /* SLConnector.m */; };
 		7CD3C04016F890D800EB4B22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CD3C03F16F890D800EB4B22 /* UIKit.framework */; };
@@ -23,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7C228F7616F9D9A300034F26 /* SLAnnotationPin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLAnnotationPin.h; sourceTree = "<group>"; };
+		7C228F7716F9D9A300034F26 /* SLAnnotationPin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLAnnotationPin.m; sourceTree = "<group>"; };
 		7C41C77916F89A0A003A7861 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7C41C77C16F8AC1C003A7861 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7C525ED916F8E1AF0018ADEE /* SLConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLConnector.h; sourceTree = "<group>"; };
@@ -97,6 +100,8 @@
 				7CD3C05716F890D800EB4B22 /* MainStoryboard.storyboard */,
 				7CD3C05A16F890D800EB4B22 /* SLViewController.h */,
 				7CD3C05B16F890D800EB4B22 /* SLViewController.m */,
+				7C228F7616F9D9A300034F26 /* SLAnnotationPin.h */,
+				7C228F7716F9D9A300034F26 /* SLAnnotationPin.m */,
 				7C525ED916F8E1AF0018ADEE /* SLConnector.h */,
 				7C525EDA16F8E1AF0018ADEE /* SLConnector.m */,
 				7CD3C04616F890D800EB4B22 /* Supporting Files */,
@@ -185,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C228F7816F9DA3500034F26 /* SLAnnotationPin.m in Sources */,
 				7CD3C04C16F890D800EB4B22 /* main.m in Sources */,
 				7CD3C05016F890D800EB4B22 /* SLAppDelegate.m in Sources */,
 				7CD3C05C16F890D800EB4B22 /* SLViewController.m in Sources */,

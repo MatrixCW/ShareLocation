@@ -21,7 +21,20 @@
     [super viewDidLoad];
     
     SLConnector *test = [[SLConnector alloc] init];
-    [test postMyLocation];
+    [test getAllUserLocation];
+    
+    
+    /*
+    CLLocationCoordinate2D testLocation;
+    testLocation.longitude = 103.7500;
+    testLocation.latitude = 1.3667;
+    SLAnnotationPin* test = [[SLAnnotationPin alloc] initWithCoordinate:testLocation
+                                                               andTitle:@"Someone is here!"
+                                                            andSubtitle:Nil];
+    
+    [self.myMapView addAnnotation:test];
+     */
+    
     
 }
 
@@ -42,16 +55,18 @@
         
         return;
     }
-        
+    
     
     CLLocationCoordinate2D zoomLocation;//center point
     zoomLocation.latitude = self.myMapView.userLocation.location.coordinate.latitude;
     zoomLocation.longitude= self.myMapView.userLocation.location.coordinate.longitude;
     
+    NSLog(@"%lf, %lf", zoomLocation.latitude, zoomLocation.longitude);
+    
     //the rectangle region containing the center point
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation,
-                                                                       10*METERS_PER_MILE,
-                                                                       10*METERS_PER_MILE);
+                                                                       100*METERS_PER_MILE,
+                                                                       100*METERS_PER_MILE);
     
     [self.myMapView setRegion:viewRegion animated:YES];
     
