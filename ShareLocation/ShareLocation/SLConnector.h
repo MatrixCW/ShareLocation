@@ -18,7 +18,10 @@
 
 @property (weak) id<requestReturnedData> myDelegate;
 
+
 -(void)getAllUserLocation;
--(void)postMyLocation;
+-(void)getMyIPAddress;
+-(void)postMyLocationIPaddress:(NSString*)IPAdress longitude:(NSString*)longitude andLatitude:(NSString*)latitude;
+-(void)deleteMyDataWithIPaddress:(NSString*)IPAdress;
 
 @end

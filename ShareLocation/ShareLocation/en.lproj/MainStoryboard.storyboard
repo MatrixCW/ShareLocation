@@ -24,6 +24,11 @@
                                             <action selector="updateButtonPressed:" destination="2" id="C03-5a-gRC"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="Quiet Please!" id="nEN-v3-t8t">
+                                        <connections>
+                                            <action selector="clearButtonPressed:" destination="2" id="KES-ZW-5Y5"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YNx-Jy-Uhj"/>
@@ -48,19 +53,6 @@
             <point key="canvasLocation" x="-77" y="-220"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SLViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="locateButtonPressed:"/>
-                <relationship kind="action" name="updateButtonPressed:"/>
-                <relationship kind="outlet" name="myMapView" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

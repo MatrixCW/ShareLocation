@@ -16,6 +16,8 @@
 
 @implementation SLConnector
 
+
+
 -(void)getAllUserLocation{
     
     //build up the request that is to be sent to the server
@@ -30,42 +32,57 @@
     
 }
 
-
--(void)postMyLocation{
+-(void)getMyIPAddress{
     
-    //build up the request that is to be sent to the server
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:
-                                                                             @"http://ec2-54-251-66-243.ap-southeast-1.compute.amazonaws.com/getHistoryData.php?id=6"]];
+                                                                             @"http://ec2-50-112-192-193.us-west-2.compute.amazonaws.com/getClientIpAddress.php"]];
     
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    if(!connection)
+        NSLog(@"Connection Failed");
+    
+}
+
+
+-(void)postMyLocationIPaddress:(NSString*)IPAdress longitude:(NSString*)longitude andLatitude:(NSString*)latitude{
+    
+    //build up the request that is to be sent to the server
+    
+    NSString* requestString = [NSString stringWithFormat:@"http://ec2-50-112-192-193.us-west-2.compute.amazonaws.com/insertMyLocation.php?ip=%@&long=%@&lat=%@", IPAdress, longitude,latitude];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:requestString]];
+    
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
     if(!connection){
         NSLog(@"Connection Failed");
     }
 }
 
 
+-(void)deleteMyDataWithIPaddress:(NSString*)IPAdress{
+    
+    NSString* requestString = [NSString stringWithFormat:@"http://ec2-50-112-192-193.us-west-2.compute.amazonaws.com/deleteMyLocation.php?ip=%@", IPAdress];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:requestString]];
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    if(!connection){
+        NSLog(@"Connection Failed");
+    }
+    
+}
+
+
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
     // executed when the connection receives data
 
-    NSString *string = [[NSString alloc] initWithData:data
-                                             encoding:NSASCIIStringEncoding];
-    
-    
-    NSArray *components = [string componentsSeparatedByString:@"\""];
-    NSMutableArray *parsedArray = [NSMutableArray array];
-    
-    for(id object in components){
-        NSMutableString *temp = [[NSMutableString alloc] initWithString:(NSString*)object];
-        NSString* parsedTemp = [temp stringByReplacingOccurrencesOfString:@"\"" withString:@""];
-        if([self stringIsNumeric:parsedTemp])
-           [parsedArray addObject:parsedTemp];
-    }
-    
-    for(id object in parsedArray)
-        NSLog(@"%@",object);
     self.receivedData = data;
+        
     
 }
+
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
     //executed when the connection fails
@@ -73,25 +90,21 @@
     NSLog(@"Connection failed with error: %@",error.localizedDescription);
 }
 
+
+
 -(void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge{
     
-
 }
+
 
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection{
     
-    NSLog(@"Request Complete,recieved %d bytes of data", self.receivedData.length);
-    
     [self.myDelegate requestReturnedData:self.receivedData];
+
 }
 
 
--(BOOL)stringIsNumeric:(NSString*) myString{
-    
-    NSNumberFormatter *nf = [[NSNumberFormatter alloc] init];
-    return [nf numberFromString:myString] != Nil;
-    
-}
+
 
 @end

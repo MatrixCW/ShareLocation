@@ -13,11 +13,15 @@
 
 #define METERS_PER_MILE 1609.344
 
-@interface SLViewController : UIViewController
+@interface SLViewController : UIViewController <requestReturnedData>
 
 @property (weak, nonatomic) IBOutlet MKMapView *myMapView;
 
+-(void)cleanUp;
+
 - (IBAction)locateButtonPressed:(id)sender;
 - (IBAction)updateButtonPressed:(id)sender;
+- (IBAction)clearButtonPressed:(id)sender;
+
 
 @end
